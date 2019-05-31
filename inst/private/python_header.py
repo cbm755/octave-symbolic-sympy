@@ -75,13 +75,6 @@ try:
         else:
             bins = "".join(chr(int(s[x:x+2], 16)) for x in range(0, len(s), 2))
         return struct.unpack(">d", bins)[0]
-    def dictdiff(a, b):
-        """ keys from a that are not in b, used by evalpy() """
-        n = dict()
-        for k in a:
-            if not k in b:
-                n[k] = a[k]
-        return n
     def Version(v):
         # short but not quite right: https://github.com/cbm755/octsympy/pull/320
         return LooseVersion(v.replace('.dev', ''))
